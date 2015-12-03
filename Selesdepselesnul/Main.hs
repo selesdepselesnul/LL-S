@@ -1,9 +1,14 @@
--- Nama  : Moch Deden R S
--- Kelas : A2
--- Npm   : 41155050140062
+-- author  : Moch Deden(https://github.com/selesdepselesnul)
 module Main where
 import Selesdepselesnul.LinkedList
 import System.Process
+import System.Info as Info
+
+clear = 
+    if Info.os == "linux" || Info.os == "darwin" then
+        system "clear"
+    else
+        system "cls"
 
 askMenu :: LinkedList String -> IO ()
 askMenu linkedList = do
@@ -15,7 +20,7 @@ askMenu linkedList = do
     putStrLn "5. Exit"
     putStrLn "-> "
     choice <- getLine
-    system "clear" -- Untuk unix
+    clear
     handleChoice choice
     where handleChoice x
             | x == "1" = do

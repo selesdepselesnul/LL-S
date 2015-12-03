@@ -1,6 +1,4 @@
--- Nama  : Moch Deden R S
--- Kelas : A2
--- Npm   : 41155050140062
+-- author : Moch Deden(https://github.com/selesdepselesnul)
 module Selesdepselesnul.LinkedList
     (
     LinkedList(..)
