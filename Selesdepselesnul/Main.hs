@@ -1,8 +1,9 @@
 -- Nama  : Moch Deden R S
 -- Kelas : A2
 -- Npm   : 41155050140062
-module Selesdepselesnul.Main where
+module Main where
 import Selesdepselesnul.LinkedList
+import System.Process
 
 askMenu :: LinkedList String -> IO ()
 askMenu linkedList = do
@@ -14,6 +15,7 @@ askMenu linkedList = do
     putStrLn "5. Exit"
     putStrLn "-> "
     choice <- getLine
+    system "clear" -- Untuk unix
     handleChoice choice
     where handleChoice x
             | x == "1" = do
@@ -39,7 +41,7 @@ askMenu linkedList = do
                 display $ linkedList
                 askMenu linkedList
             | x == "5" = putStrLn "Program Keluar!"
-            | otherwise = putStrLn "Pilihan tidak valid!"
+            | otherwise = putStrLn "Pilihan tidak valid!" >> askMenu linkedList
 
 main :: IO ()
 main = do
