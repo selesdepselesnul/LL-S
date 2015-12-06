@@ -1,27 +1,25 @@
 -- author : Moch Deden(https://github.com/selesdepselesnul)
-module Selesdepselesnul.LinkedList
-    (
+module Selesdepselesnul.LinkedList (
     LinkedList(..)
     , display
     , deleteHead
-    , search
-    ) where
+    , isIn
+) where
+
 infixr 5 :-:
-data LinkedList a =
-    EmptyList
-    | a :-: LinkedList a
+data LinkedList a = EmptyList | a :-: LinkedList a
     deriving(Show)
 
-display :: LinkedList String -> IO ()
+display :: Show a => LinkedList a -> IO ()
 display EmptyList = putStrLn "Kosong"
-display (x :-: EmptyList) = putStrLn  x
-display (x :-: xs) = putStrLn x >> display xs
+display (x :-: EmptyList) =  print x
+display (x :-: xs) = print x >> display xs
 
-deleteHead :: LinkedList String -> LinkedList String
+deleteHead :: LinkedList a -> LinkedList a
 deleteHead (x :-: xs) = xs
 deleteHead _ = EmptyList
 
-search :: String -> LinkedList String -> Bool
-search _ EmptyList = False
-search a (x :-: EmptyList) = a == x
-search a (x :-: xs) = x == a || search a xs
+isIn :: Eq a => a -> LinkedList a -> Bool
+_ `isIn` EmptyList = False
+a `isIn` (x :-: EmptyList) = a == x
+a `isIn` (x :-: xs) = x == a ||  a `isIn` xs
