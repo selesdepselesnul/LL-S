@@ -10,8 +10,11 @@ main = do
     askMenu EmptyList
 
 askMenu :: LinkedList String -> IO ()
-askMenu linkedList =
-    displayMenu >> getLine >>= \x -> clear >> handleChoice x
+askMenu linkedList = do
+    displayMenu 
+    choice <- getLine 
+    clear
+    handleChoice choice
 
     where
         displayMenu = do
