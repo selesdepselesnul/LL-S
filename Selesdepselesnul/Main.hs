@@ -1,7 +1,5 @@
 -- author  : Moch Deden(https://github.com/selesdepselesnul)
--- Nama  : Moch Deden R S
--- Npm   : 41155050140062
--- Kelas : A2
+
 module Main where
 import Selesdepselesnul.LinkedList
 import System.Process
