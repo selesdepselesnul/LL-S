@@ -61,6 +61,16 @@ askMenu linkedList = do
                 putStrLn "Isi linked-list :"
                 display linkedList
                 askMenu linkedList
+            | choice == "5" = do
+                putStrLn "Masukan nilai yang menjadi pivot : "
+                pivot <- getLine
+                putStrLn "Masukan nilai yang akan di insert : "
+                value <- getLine
+                askMenu $ insertAfter pivot value linkedList
+            | choice == "6" = do
+                putStrLn "Masukan nilai yang menjadi pivot : "
+                pivot <- getLine
+                askMenu $ deleteAfter pivot linkedList
             | choice == "7" = putStrLn "Program Keluar!"
             | otherwise = do
                 putStrLn "Pilihan tidak valid!"

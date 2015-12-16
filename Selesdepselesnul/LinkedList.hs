@@ -4,6 +4,8 @@ module Selesdepselesnul.LinkedList (
     , display
     , deleteHead
     , isIn
+    , deleteAfter
+    , insertAfter
 ) where
 
 infixr 5 :-:
@@ -26,8 +28,8 @@ a `isIn` (x :-: xs) = x == a ||  a `isIn` xs
 
 deleteAfter :: Eq a => a -> LinkedList a -> LinkedList a
 deleteAfter _ EmptyList = EmptyList
-deleteListAfter x (y :-: EmptyList) = y :-: EmptyList 
-deleteListAfter x (y :-: z :-: zs) = if x == y then y :-: zs  else y :-:  (deleteListAfter x (z :-: zs))
+deleteAfter x rest@(y :-: EmptyList) = rest
+deleteAfter x (y :-: z :-: zs) = if x == y then y :-: zs  else y :-: (deleteAfter x (z :-: zs))
 
 insertAfter :: Eq a => a -> a -> LinkedList a -> LinkedList a
 insertAfter _ _ EmptyList = EmptyList 
