@@ -19,11 +19,13 @@ askMenu linkedList = do
     where
         displayMenu = do
             putStrLn "Masukan pilihan : "
-            putStrLn "1. Insert"
+            putStrLn "1. Insert first"
             putStrLn "2. Search"
-            putStrLn "3. Delete"
+            putStrLn "3. Delete first"
             putStrLn "4. Display"
-            putStrLn "5. Exit"
+            putStrLn "5. Insert after"
+            putStrLn "6. Delete after"
+            putStrLn "7. Exit"
             putStrLn "->"
 
         clear = do
@@ -59,7 +61,7 @@ askMenu linkedList = do
                 putStrLn "Isi linked-list :"
                 display linkedList
                 askMenu linkedList
-            | choice == "5" = putStrLn "Program Keluar!"
+            | choice == "7" = putStrLn "Program Keluar!"
             | otherwise = do
                 putStrLn "Pilihan tidak valid!"
                 askMenu linkedList
