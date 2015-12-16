@@ -33,8 +33,8 @@ deleteAfter x (y :-: z :-: zs) = if x == y then y :-: zs  else y :-: (deleteAfte
 
 insertAfter :: Eq a => a -> a -> LinkedList a -> LinkedList a
 insertAfter _ _ EmptyList = EmptyList 
-insertAfter searched x rest@(y :-: EmptyList)
-    | searched /= y = rest 
-insertAfter searched x (y :-: ys) 
-    | searched == y = y :-: x :-: ys
-    | otherwise = y :-: (insertAfter searched x ys)
+insertAfter pivot x rest@(y :-: EmptyList)
+    | pivot /= y = rest 
+insertAfter pivot x (y :-: ys) 
+    | pivot == y = y :-: x :-: ys
+    | otherwise = y :-: (insertAfter pivot x ys)
